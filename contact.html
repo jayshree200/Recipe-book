@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <li>
+                <input type="text" id="searchBar" placeholder="Search recipes..." oninput="searchRecipes()">
+            </li>
+        </nav>
+    </header>
+<!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+            <img src="WhatsApp Image 2024-09-28 at 5.04.16 PM.jpeg" alt="whatsapp image" style="width: 150px; height: auto; border-radius: 50%;">
+            <h1>Jayshree</h1>
+            <p>Email: <a href="mailto:founder@example.com">founder@example.com</a></p>
+            <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+            <p>Social Media:</p>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="contact-info">
+            <img src="WhatsApp Image 2024-09-28 at 5.04.17 PM.jpeg" alt="whatsapp image" style="width: 150px; height: auto; border-radius: 50%;">
+            <h1>Samta Yadav</h1>
+            <p>Email: <a href="mailto:founder@example.com">founder@example.com</a></p>
+            <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+            <p>Social Media:</p>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h3>Message for joining our team</h3>
+        <form action="submit_form.php" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Your name" required><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Your email" required><br><br>
+            
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea><br><br>
+            
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+
+
+    <script>
+        function openVideo(videoSrc) {
+            document.getElementById('recipeVideo').src = videoSrc;
+            document.getElementById('videoModal').style.display = 'block';
+        }
+
+        function closeVideo() {
+            const video = document.getElementById('recipeVideo');
+            video.pause();
+            video.currentTime = 0;
+            document.getElementById('videoModal').style.display = 'none';
+        }
+
+        function searchRecipes() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const recipes = document.querySelectorAll('.recipe');
+
+            recipes.forEach(recipe => {
+                const recipeName = recipe.getAttribute('data-name').toLowerCase();
+                if (recipeName.includes(input)) {
+                    recipe.style.display = 'block'; // Show recipe
+                } else {
+                    recipe.style.display = 'none'; // Hide recipe
+                }
+            });
+        }
+    </script>
+</body>
+</html>
